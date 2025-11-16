@@ -1,0 +1,39 @@
+fastapi==0.95.2
+uvicorn[standard]==0.22.0
+ccxt==2.0.93
+httpx==0.24.1
+pytest==7.4.0
+pytest-asyncio==0.21.0
+asynctest==0.13.0
+cachetools==5.3.1
+python-dotenv==1.1.0
+# Project Requirements (Simplified)
+
+This project is a Python FastAPI server that provides real-time and historical cryptocurrency data using CCXT.
+
+## Endpoints
+
+### 1. Health Check
+GET http://localhost:8000/health
+
+### 2. Live Price
+GET http://localhost:8000/price?exchange=binance&symbol=BTC/USDT
+
+### 3. Historical OHLCV
+GET http://localhost:8000/history?exchange=binance&symbol=BTC/USDT&timeframe=1m&limit=10
+
+### 4. Streaming Prices
+GET http://localhost:8000/stream/price?exchange=binance&symbol=BTC/USDT&interval=5
+
+## Features
+- FastAPI-based server
+- CCXT for market data
+- TTL caching
+- Error handling
+- Test cases using pytest
+
+## Run the server
+uvicorn app.main:app --reload
+
+## Run tests
+pytest -q
